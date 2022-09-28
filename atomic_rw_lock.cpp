@@ -161,9 +161,9 @@ int main()
   auto beforeTime = std::chrono::steady_clock::now();
   std::thread t1(fun1);
   std::thread t2(fun1);
-  std::thread t3(fun2);
   t1.join();
   t2.join();
+  std::thread t3(fun2);
   t3.join();
   std::cout << " i : " << i << std::endl;
   std::cout << " s : " << s << std::endl;
