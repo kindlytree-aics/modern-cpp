@@ -1,4 +1,5 @@
 ## Modern CPP tutorial
+本仓库维护关于现代C++相关编程技术的话题，基本的介绍基于现有比较有影响力的开源代码；具体引用的时候在对应的文档里会有说明。欢迎大家的反馈，我们会不断优化更新相关内容。
 
 ### 开发环境准备：
 - IDE：https://code.visualstudio.com/
@@ -12,6 +13,14 @@
     - vscode中安装必要的插件，如c/c++插件
     - 具体配置请参考视频演示：https://www.bilibili.com/video/BV1Ee411K7Hq
 
+### 内容列表:
+- [线程的等待策略](./docs/wait_stategy.md)
+- [有界队列的无锁实现](./docs/bounded_queue.md)
+- [读写锁的无锁实现](./docs/atomic_rw_lock.md)
+
 ### 更多内容
 - 抖音号：kindlytree_aics
 - 知乎主页：https://www.zhihu.com/people/kindlytree
+
+### Reference
+- https://en.cppreference.com/

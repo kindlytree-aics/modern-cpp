@@ -4,12 +4,6 @@ atomic是c++11标准,在gcc编译的时候必须加入std=c++11选项才能正�
 - 代码位置：`cyber\base\atomic_rw_lock.h`
 - 和自旋锁（spinlock）的关系(TO be added)
 
-### CAS(Compare And Swap)
-CAS为一个原子操作，其可以见当前的原子变量的值和期望值进行比较，根据比较的结果进行对应的操作
-当前值与期望值(expect)相等时，修改当前值为设定值(desired)，返回true
-当前值与期望值(expect)不等时，将期望值(expect)修改为当前值，返回false
-具体使用见后面的代码说明
-std::atomic compare_exchange_weak和compare_exchange_strong
 
 ```
 class AtomicRWLock {
@@ -55,7 +49,7 @@ inline void AtomicRWLock::ReadLock() {
       //则当前的读锁不能继续争抢，需要进入轮询状态
       while (lock_num < RW_LOCK_FREE || write_lock_wait_num_.load() > 0) {
         if (++retry_times == MAX_RETRY_TIMES) {
-          // saving cpu,当前线程让出cpu
+          // 当轮询超过一定的次数，当前线程让出cpu，为了节省cpu资源，saving cpu
           //std::this_thread::yield(); 是将当前线程所抢到的CPU”时间片A”让渡给其他线程
           //(其他线程会争抢”时间片A”,注意: 此时”当前线程”不参与争抢).
           //等到其他线程使用完”时间片A”后, 再由操作系统调度, 当前线程再和其他线程一起开始抢CPU时间片.
@@ -105,7 +99,7 @@ inline void AtomicRWLock::WriteLock() {
     // rw_lock_free will change after CAS fail, so init agin
     //如果当前有读操作在进行，lock_num_ >0,当前值与期望值(expect)不相等时
     //这时需要将期望值(expect)修改为当前值，返回false，!为true，
-    //此时rw_lock_free值已经修改为lock_num_的值，需要再改回来，同时进行多次轮训
+    //此时rw_lock_free值已经修改为lock_num_的值，需要再改回来，同时进行多次轮询
     //如果达到轮询次数的上限，则让出cpu，当前线程hang住等待下次调度
     //若当前已经没有读操作在进行了(读锁已经释放),则lock_num_为0，
     //此时当前值与期望值(rw_lock_free)相等时（均为0），修改当前值为设定值(desired，即为WRITE_EXCLUSIVE)，返回true
