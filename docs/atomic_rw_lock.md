@@ -2,8 +2,8 @@
 atomic是c++11标准,在gcc编译的时候必须加入std=c++11选项才能正确编译
 - 无锁编程
 - 代码位置：`cyber\base\atomic_rw_lock.h`
+- 实验代码：`.\src\atomic_rw_lock.cpp`
 - 和自旋锁（spinlock）的关系(TO be added)
-
 
 ```
 class AtomicRWLock {

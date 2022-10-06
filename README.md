@@ -14,9 +14,18 @@
     - 具体配置请参考视频演示：https://www.bilibili.com/video/BV1Ee411K7Hq
 
 ### 内容列表:
+
+#### 新特性
+- [右值引用]()
+- [std::move]()
+- [lamda表达式]()
+
+#### 多线程(并发)编程
 - [线程的等待策略](./docs/wait_stategy.md)
-- [有界队列的无锁实现](./docs/bounded_queue.md)
-- [读写锁的无锁实现](./docs/atomic_rw_lock.md)
+- [线程安全队列](./docs/bounded_queue.md)
+- [有界队列及其无锁实现](./docs/bounded_queue.md)
+- [原子读写锁的实现](./docs/atomic_rw_lock.md)
+- [协程](./)
 
 ### 更多内容
 - 抖音号：kindlytree_aics
@@ -24,3 +33,5 @@
 
 ### Reference
 - https://en.cppreference.com/
+- www.cplusplus.com/doc/tutorial
+- https://web.stanford.edu/class/cs106b/

@@ -1,7 +1,8 @@
 ### 线程安全的有界队列及其无锁实现:
 该实现用定长数组实现有界对立，维护head，tail以及当前commit的位置信息，通过atomic操作来保证线程安全
 - 无锁编程
-- 代码位置：`cyber\base\bounded_queue.h`
+- apollo代码位置：`cyber\base\bounded_queue.h`
+- 实验代码：`.\src\bounded_queue.cpp`
 
 ```
 template <typename T>
