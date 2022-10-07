@@ -252,7 +252,6 @@ bool SchedulerClassic::DispatchTask(const std::shared_ptr<CRoutine>& cr) {
 是的，下面的协程resume的代码可以看到
 
 ```
-
 //static thread_local CRoutine *current_routine_;
 //static thread_local char *main_stack_;
 //inline char **CRoutine::GetStack() { return &(context_->sp); }
