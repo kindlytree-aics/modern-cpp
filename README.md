@@ -25,7 +25,7 @@
 - [线程安全队列](./docs/bounded_queue.md)
 - [有界队列及其无锁实现](./docs/bounded_queue.md)
 - [原子读写锁的实现](./docs/atomic_rw_lock.md)
-- [协程](./)
+- [协程](./docs/coroutine.md)
 
 ### 更多内容
 - 抖音号：kindlytree_aics
@@ -35,3 +35,6 @@
 - https://en.cppreference.com/
 - www.cplusplus.com/doc/tutorial
 - https://web.stanford.edu/class/cs106b/
+- https://github.com/rigtorp/awesome-modern-cpp
+- https://github.com/changkun/modern-cpp-tutorial
+- https://github.com/CnTransGroup/EffectiveModernCppChinese

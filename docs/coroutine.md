@@ -209,7 +209,6 @@ auto func = [self](const std::shared_ptr<M0>& msg) {
   return sched->CreateTask(factory, node_->Name());
 ```
 
-
 ### Reference
 - https://blog.csdn.net/jinzhuojun/article/details/86760743
 - https://zhuanlan.zhihu.com/p/220025846
